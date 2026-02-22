@@ -1,7 +1,8 @@
 'use client'
 
 import { Button } from "@/components/ui/Button"
-import { Truck, Shield, Clock, MapPin, ArrowRight, CheckCircle2 } from "lucide-react"
+import Link from "next/link"
+import { Truck, Shield, Clock, MapPin, ArrowRight, CheckCircle2, Snowflake, Tractor, HardHat, Shovel, Biohazard } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
@@ -45,7 +46,7 @@ export default function Home() {
             variants={staggerContainer}
             className="max-w-4xl mx-auto space-y-6"
           >
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 leading-tight">
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200 leading-tight">
               Your One Stop <br />
               <span className="">Hauling Partner</span>
             </motion.h1>
@@ -55,12 +56,16 @@ export default function Home() {
             </motion.p>
 
             <motion.div variants={fadeInUp} className="pt-8 flex flex-col md:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-10 shadow-red-900/50 shadow-2xl">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg">
-                Our Services
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="text-lg px-10 shadow-red-900/50 shadow-2xl">
+                  Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="#services">
+                <Button variant="outline" size="lg" className="text-lg">
+                  Our Services
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -101,58 +106,90 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="relative h-[500px] w-full rounded-2xl overflow-hidden glass-dark border border-white/10 flex items-center justify-center p-8 text-center"
+            className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-white/10"
           >
-            {/* Placeholder for truck image if not available, or use the foreground truck if suitable */}
+            <Image
+              src="/new-company-profile.jpg"
+              alt="Workhorse Trucking Company Profile"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+            />
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-red/20 to-transparent pointer-events-none" />
-
-            {/* Using the foreground truck if possible effectively */}
-            <img src="/trucks-foreground.png" alt="Workhorse Fleet" className="object-contain w-full h-full drop-shadow-2xl hover:scale-105 transition-transform duration-700" />
           </motion.div>
         </div>
       </section>
 
       {/* SERVICES SECTION */}
-      <section id="services" className="py-24 bg-neutral-900/50">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+      <section id="services" className="bg-neutral-900/50">
+        {/* Services hero image banner */}
+        <div className="relative w-full h-80 overflow-hidden">
+          <Image
+            src="/our-services.jpg"
+            alt="Workhorse Trucking Services"
+            fill
+            className="object-cover opacity-60"
+            style={{ objectPosition: 'center 59%' }}
+          />
+          {/* Subtle dim overlay so text stays readable */}
+          <div className="absolute inset-0 bg-black/30" />
+          {/* Gradual fade to black at top — starts at h-64 */}
+          <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black via-black/40 to-transparent" />
+          {/* Gray fade at bottom — matches quarry top fade exactly, mirrored */}
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-neutral-800 via-neutral-800/40 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 space-y-3">
             <h2 className="text-brand-red text-sm font-bold tracking-widest uppercase">Our Services</h2>
-            <h3 className="text-4xl font-bold text-white">Full Range of Trucking & Hauling</h3>
-            <p className="text-gray-400">
+            <h3 className="text-4xl font-bold text-white">Full Range of Trucking &amp; Hauling</h3>
+            <p className="text-gray-300 max-w-2xl">
               We take pride in our ability to adapt to a wide range of project needs, from material hauling to snow removal.
             </p>
           </div>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Service Cards */}
-            {[
-              { title: "Material Hauling", icon: Truck, desc: "Dirt, gravel, sand, asphalt, and aggregate transport for construction." },
-              { title: "Snow Hauling", icon: MapPin, desc: "Relocation and removal ensuring operational roads and job sites." },
-              { title: "Hazmat Transport", icon: Shield, desc: "Compliant hauling of approved hazardous materials with trained drivers." },
-              { title: "Equipment Hauling", icon: Truck, desc: "Safe transport of construction equipment and heavy machinery." },
-              { title: "Construction Support", icon: Clock, desc: "Project-based specialized solutions and time-sensitive deliveries." },
-              { title: "Site Clearing", icon: CheckCircle2, desc: "Comprehensive site preparation and debris removal services." },
-            ].map((service, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group p-8 rounded-xl bg-black border border-white/10 hover:border-brand-red/50 hover:bg-white/5 transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                  <service.icon size={100} />
-                </div>
-                <div className="relative z-10">
-                  <div className="bg-brand-red/20 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
-                    <service.icon size={28} />
+        <div className="relative">
+          {/* Quarry texture background behind cards */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/quarry-background.jpeg"
+              alt=""
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-black/85" />
+            {/* Gradual fade from dark gray at top — thin transition */}
+            <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-neutral-800 via-neutral-800/40 to-transparent" />
+          </div>
+          <div className="container-custom py-16 relative z-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Service Cards */}
+              {[
+                { title: "Material Hauling", icon: Truck, desc: "Dirt, gravel, sand, asphalt, and aggregate transport for construction." },
+                { title: "Snow Hauling", icon: Snowflake, desc: "Relocation and removal ensuring operational roads and job sites." },
+                { title: "Hazmat Transport", icon: Biohazard, desc: "Compliant hauling of approved hazardous materials with trained drivers." },
+                { title: "Equipment Hauling", icon: Tractor, desc: "Safe transport of construction equipment and heavy machinery." },
+                { title: "Construction Support", icon: HardHat, desc: "Project-based specialized solutions and time-sensitive deliveries." },
+                { title: "Site Clearing", icon: Shovel, desc: "Comprehensive site preparation and debris removal services." },
+              ].map((service, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group p-8 rounded-xl bg-black/60 backdrop-blur-sm border border-white/10 hover:border-brand-red/50 hover:bg-black/80 transition-all duration-300 relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <service.icon size={100} />
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-3">{service.title}</h4>
-                  <p className="text-gray-400 group-hover:text-gray-300">{service.desc}</p>
-                </div>
-              </motion.div>
-            ))}
+                  <div className="relative z-10">
+                    <div className="bg-brand-red/20 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors">
+                      <service.icon size={28} />
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-3">{service.title}</h4>
+                    <p className="text-gray-400 group-hover:text-gray-300">{service.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -170,7 +207,7 @@ export default function Home() {
                   { title: "Safety First Mindset", desc: "We operate with strict compliance to industry regulations and safety standards." },
                   { title: "Reliable Equipment", desc: "Well-maintained fleet ensuring consistent performance on every job." },
                   { title: "Experienced Operators", desc: "Committed to efficiency, accountability, and doing the job right." },
-                  { title: "Broad Operational Scope", desc: "Serving Alaska (ALCAN), Texas, and Louisiana with proven capability." },
+                  { title: "Broad Operational Scope", desc: "Serving Alaska, Canada and the Lower 48 with proven capability." },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 items-start">
                     <div className="mt-1">
@@ -194,26 +231,39 @@ export default function Home() {
                 Whether supporting public infrastructure or private construction, we bring a strong work ethic and results-driven approach.
                 When you choose Workhorse, you're choosing a partner that values integrity and stands behind its performance.
               </p>
-              <Button variant="default" size="lg" className="mt-4">
-                Contact Us Today
-              </Button>
+              <Link href="/contact">
+                <Button variant="default" size="lg" className="mt-4">
+                  Contact Us Today
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="py-20 relative bg-brand-red overflow-hidden">
-        <div className="absolute inset-0 bg-black/20" />
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/ready-to-get-moving.jpg"
+            alt="Ready to get moving"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-brand-red/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-black/20" />
+        </div>
         <div className="container-custom relative z-10 text-center space-y-8">
           <h2 className="text-3xl md:text-5xl font-bold text-white">Ready to get moving?</h2>
           <p className="text-white/90 text-xl max-w-2xl mx-auto">
             Contact us today to discuss your project needs and request a quote.
           </p>
           <div className="flex justify-center gap-4">
-            <Button size="lg" className="bg-white text-brand-red hover:bg-gray-100 border-none">
-              Request a Quote
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" className="bg-white text-brand-red hover:bg-gray-100 border-none">
+                Request a Quote
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

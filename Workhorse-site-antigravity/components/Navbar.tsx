@@ -36,13 +36,13 @@ export default function Navbar() {
         >
             <div className="container-custom flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 group">
-                    <div className="relative h-10 w-10 group-hover:scale-105 transition-transform">
+                <Link href="/" className="flex items-center gap-0 group">
+                    <div className="relative h-10 w-14 group-hover:scale-105 transition-transform">
                         <Image
-                            src="/workhorse-logo.png"
+                            src="/new-workhorse-logo.png"
                             alt="Workhorse Trucking Logo"
                             fill
-                            className="object-contain"
+                            className="object-contain object-left"
                         />
                     </div>
                     <span className={cn("text-xl font-bold tracking-tight uppercase", scrolled ? "text-white" : "text-white")}>
@@ -61,9 +61,11 @@ export default function Navbar() {
                             {link.name}
                         </Link>
                     ))}
-                    <Button variant="default" className="ml-4 font-bold">
-                        Get Started
-                    </Button>
+                    <Link href="/contact">
+                        <Button variant="default" className="ml-4 font-bold">
+                            Get Started
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Mobile Toggle */}
