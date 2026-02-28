@@ -46,7 +46,7 @@ export default function Home() {
             variants={staggerContainer}
             className="max-w-4xl mx-auto space-y-6"
           >
-            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200 leading-tight">
+            <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-300 to-white leading-tight">
               Your One Stop <br />
               <span className="">Hauling Partner</span>
             </motion.h1>
@@ -109,10 +109,11 @@ export default function Home() {
             className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-white/10"
           >
             <Image
-              src="/new-company-profile.jpg"
+              src="/neo-company-profile.jpg"
               alt="Workhorse Trucking Company Profile"
               fill
-              className="object-cover hover:scale-105 transition-transform duration-700"
+              className="object-cover scale-110 hover:scale-125 transition-transform duration-700"
+              style={{ objectPosition: 'left center', transformOrigin: 'left center' }}
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-brand-red/20 to-transparent pointer-events-none" />
           </motion.div>

@@ -10,10 +10,10 @@ export default function ContactPage() {
             {/* Hero Banner */}
             <div className="relative w-full h-72 overflow-hidden">
                 <Image
-                    src="/get-in-touch.jpg"
+                    src="/neo-get-in-touch.jpg"
                     alt="Get in Touch with Workhorse Trucking"
                     fill
-                    className="object-cover"
+                    className="object-cover opacity-60"
                     priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-neutral-950" />
@@ -65,7 +65,7 @@ export default function ContactPage() {
                                 <div>
                                     <h4 className="font-semibold text-white">Office</h4>
                                     <p className="text-gray-400 mt-1">
-                                        Anchorage, Alaska<br />
+                                        Wasilla, Alaska<br />
                                         Serving Statewide & ALCAN Corridor
                                     </p>
                                 </div>
@@ -73,8 +73,13 @@ export default function ContactPage() {
                         </div>
 
                         {/* Map Placeholder or Additional Info */}
-                        <div className="bg-neutral-900 rounded-2xl h-64 w-full flex items-center justify-center border border-white/5">
-                            <p className="text-gray-600">Map Integration would go here</p>
+                        <div className="h-64 w-full relative overflow-hidden">
+                            <Image
+                                src="/updated-workhorse-logo.jpeg"
+                                alt="Workhorse Trucking"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
                     </div>
 

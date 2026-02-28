@@ -39,7 +39,7 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center gap-0 group">
                     <div className="relative h-10 w-14 group-hover:scale-105 transition-transform">
                         <Image
-                            src="/new-workhorse-logo.png"
+                            src="/updated-workhorse-logo.jpeg"
                             alt="Workhorse Trucking Logo"
                             fill
                             className="object-contain object-left"

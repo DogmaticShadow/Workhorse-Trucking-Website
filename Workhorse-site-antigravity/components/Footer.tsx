@@ -11,7 +11,7 @@ export default function Footer() {
                     <Link href="/" className="flex items-center gap-0">
                         <div className="relative h-8 w-11">
                             <Image
-                                src="/new-workhorse-logo.png"
+                                src="/updated-workhorse-logo.jpeg"
                                 alt="Workhorse Trucking Logo"
                                 fill
                                 className="object-contain object-left"
@@ -41,7 +41,7 @@ export default function Footer() {
                     <ul className="space-y-4 text-sm">
                         <li className="flex items-start gap-3">
                             <MapPin className="h-5 w-5 text-brand-red shrink-0" />
-                            <span>Serving Alaska & The US<br />Based in Anchorage, AK</span>
+                            <span>Serving Alaska &amp; The US<br />Based in Wasilla, AK</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Phone className="h-5 w-5 text-brand-red shrink-0" />
