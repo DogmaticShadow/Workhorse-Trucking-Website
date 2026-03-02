@@ -21,9 +21,9 @@ export default function Navbar() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '#about' }, // Using anchors for single page feel as verified in plan
-        { name: 'Services', href: '#services' },
-        { name: 'Why Us', href: '#why-us' },
+        { name: 'About', href: '/#about' },
+        { name: 'Services', href: '/#services' },
+        { name: 'Why Us', href: '/#why-us' },
         { name: 'Contact', href: '/contact' },
     ]
 
