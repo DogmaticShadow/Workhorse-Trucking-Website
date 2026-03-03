@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
     }
 
     const { error } = await resend.emails.send({
-      from: 'Workhorse Trucking <onboarding@resend.dev>',
+      from: 'Workhorse Trucking <noreply@workhorsetruckingalaska.com>',
       to: ['workhorsetrucking1267@gmail.com'],
       replyTo: email,
       subject: `New Inquiry: ${service} — ${firstName} ${lastName}`,
